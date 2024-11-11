@@ -30,7 +30,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgba(red, green, blue, 44%);
 }
 
 .search-button {
@@ -40,8 +40,12 @@
   cursor: pointer;
 }
 
+.search-button img {
+  width: 40px;
+}
+
 .profile-button img {
-  width: 50px;
+  width: 70px;
   border-radius: 100px;
 }
 
