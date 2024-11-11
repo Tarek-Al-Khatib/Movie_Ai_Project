@@ -1,0 +1,52 @@
+.links ul li a {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+}
+
+.logo {
+  font-size: 32px;
+}
+
+.logo img {
+  width: 50px;
+}
+.gap-links {
+  gap: 80px;
+}
+
+.search {
+  background-color: unset;
+  color: white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid white;
+  font-size: 24px;
+}
+
+.search:focus {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid white;
+}
+
+.search-button {
+  background-color: unset;
+  border: none;
+  filter: invert(100%) brightness(100%) saturate(100%);
+  cursor: pointer;
+}
+
+.profile-button img {
+  width: 50px;
+  border-radius: 100px;
+}
+
+.profile-button {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+}

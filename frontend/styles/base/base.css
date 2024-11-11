@@ -33,6 +33,9 @@
 .horizontal-center {
   justify-content: center;
 }
+.space-between {
+  justify-content: space-between;
+}
 
 .vertical-center {
   align-items: center;
@@ -52,4 +55,44 @@
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.block {
+  display: block;
+}
+
+.extralight {
+  font-family: "Mitr", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.light {
+  font-family: "Mitr", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.regular {
+  font-family: "Mitr", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.medium {
+  font-family: "Mitr", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.semibold {
+  font-family: "Mitr", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.bold {
+  font-family: "Mitr", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }

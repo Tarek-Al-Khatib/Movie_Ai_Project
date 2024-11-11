@@ -4,28 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MovieMap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/base/base.css" />
+    <link rel="stylesheet" href="./styles/base/colors.css" />
+    <link rel="stylesheet" href="./styles/home.css" />
   </head>
   <body>
-    <nav>
-      <div>
-        <img src="" alt="" />
-        <p>Movie</p>
-        <p>Map</p>
+    <nav class="flex space-between padding vertical-center bg-black">
+      <div class="logo flex vertical-center gap">
+        <img src="./assets/logo.png" alt="logo" />
+
+        <p class="regular text-primary block">Movie</p>
+        <p class="regular text-accent block">Map</p>
       </div>
 
-      <div>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="#">Chatbot</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Genres</a></li>
+      <div class="links">
+        <ul class="flex gap-links">
+          <li><a href="home.html" class="regular">Home</a></li>
+          <li><a href="#" class="regular">Chatbot</a></li>
+          <li><a href="#" class="regular">Profile</a></li>
+          <li><a href="#" class="regular">Genres</a></li>
         </ul>
       </div>
 
       <div>
-        <a href=""><img src="" alt="" /></a>
-        <input type="text" />
-        <a href><img src="" alt="" /></a>
+        <button class="search-button" id="search-button">
+          <img src="./assets/search.svg" alt="" />
+        </button>
+        <input type="text" placeholder="Search" class="search text-center" />
+        <button class="profile-button" id="profile-button">
+          <img src="./assets/person.png" alt="profile" />
+        </button>
       </div>
     </nav>
   </body>

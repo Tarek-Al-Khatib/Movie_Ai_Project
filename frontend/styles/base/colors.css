@@ -14,6 +14,21 @@
   background-color: #f2e8c6;
 }
 
+.bg-black {
+  background-color: black;
+}
+
+.text-black {
+  color: black;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.text-white {
+  color: white;
+}
 .text-primary {
   color: #800000;
 }
