@@ -151,3 +151,8 @@
 .movie-info p {
   font-size: 24px;
 }
+
+.movie-content {
+  width: 700px;
+  margin-left: 40px;
+}
