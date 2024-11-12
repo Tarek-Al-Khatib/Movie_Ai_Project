@@ -99,8 +99,55 @@
 }
 
 .movie-buttons a {
-  padding: 10px 20px;
+  padding: 10px 25px;
   border-radius: 5px;
   font-size: 24px;
   text-decoration: none;
+}
+
+.all-movies {
+  padding-top: 40px;
+  box-shadow: inset 0px 0px 100px 100px rgba(1, 1, 1, 0.4);
+}
+
+.all-movies .title {
+  text-align: center;
+  padding-top: 15px;
+  font-size: 36px;
+  padding-bottom: 25px;
+}
+
+.movie-layout {
+  gap: 25px;
+}
+
+.movie-card {
+  background: linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)),
+    url("../assets/freddy.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 336px;
+  height: 230px;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0px 0px 20px black;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+}
+
+.movie-info {
+  padding: 10px;
+}
+
+.movie-info h3 {
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.movie-info p {
+  font-size: 24px;
 }
