@@ -22,15 +22,12 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgba(red, green, blue, 44%);
   font-size: 24px;
 }
 
 .search:focus {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid rgba(red, green, blue, 44%);
+  outline: none;
 }
 
 .search-button {
@@ -53,4 +50,57 @@
   background-color: unset;
   border: none;
   cursor: pointer;
+}
+
+.header-movie {
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)),
+    url("../assets/freddy.jpg");
+}
+
+.movie-section {
+  background: linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)),
+    url("../assets/freddy.jpg") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: left;
+  height: 400px;
+}
+
+.movie-genres {
+  display: flex;
+  gap: 20px;
+}
+
+.movie-genres span {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 5px 10px;
+  font-size: 32px;
+  border: 6px solid white;
+}
+
+.movie-title {
+  font-size: 64px;
+  margin: 10px 0;
+}
+
+.movie-description {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.movie-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.movie-buttons a {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 24px;
+  text-decoration: none;
 }
