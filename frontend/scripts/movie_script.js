@@ -23,12 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function displayRandomRecommendedMovie(recommended) {
     const randomMovie =
       recommended[Math.floor(Math.random() * recommended.length)];
-    const header_movie = document.getElementById("header-movie");
-    header_movie.style.background = `linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)), url(${randomMovie.poster})`;
-    header_movie.style.backgroundPosition = "top";
-    document.getElementById("movie-title").textContent = randomMovie.title;
-    document.getElementById("movie-description").textContent =
+    const movie_section = document.getElementById("movie-section");
+    movie_section.style.background = `linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)), url(${randomMovie.poster})`;
+    movie_section.style.backgroundPosition = "top";
+    document.getElementById("movie-title-reco").textContent = randomMovie.title;
+    document.getElementById("movie-description-reco").textContent =
       randomMovie.description;
+    document.getElementById("movie-genre").querySelector(".light").textContent =
+      randomMovie.genre;
   }
 
   axios
@@ -77,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         updatePage(moviesRecommended, "recommendations");
+        displayRandomRecommendedMovie(moviesRecommended);
       }
       return response.data.choices[0].message.content;
     } catch (error) {
