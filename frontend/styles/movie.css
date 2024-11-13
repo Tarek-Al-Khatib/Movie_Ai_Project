@@ -1,0 +1,79 @@
+.movie-section {
+  display: flex;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #8b0000;
+  color: white;
+  max-width: 900px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.movie-info {
+  max-width: 60%;
+}
+
+.movie-info h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 18px;
+  color: #ffd700;
+  margin-left: 10px;
+}
+
+.star {
+  color: #ffd700;
+}
+
+.bookmark {
+  margin-left: 10px;
+}
+
+.description {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.genres {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.genre {
+  background-color: #ccc;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.ratings-section {
+  text-align: right;
+  max-width: 35%;
+}
+
+.ratings-section h2,
+.ratings-section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.last-rating p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.user-rating {
+  color: #ffd700;
+}
+
+.rate-movie {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  font-size: 24px;
+}

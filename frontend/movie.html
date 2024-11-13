@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Section</title>
+    <link rel="stylesheet" href="./styles/base/base.css" />
+    <link rel="stylesheet" href="./styles/base/colors.css" />
+    <link rel="stylesheet" href="./styles/movie.css" />
+  </head>
+  <body>
+    <nav class="flex space-between padding vertical-center bg-black">
+      <div class="logo flex vertical-center gap">
+        <img src="./assets/logo.png" alt="logo" />
+
+        <p class="regular text-primary block">Movie</p>
+        <p class="regular text-accent block">Map</p>
+      </div>
+
+      <div class="links">
+        <ul class="flex gap-links">
+          <li><a href="home.html" class="regular">Home</a></li>
+          <li><a href="chatbot.html" class="regular">Chatbot</a></li>
+          <li><a href="#" class="regular">Profile</a></li>
+          <li><a href="#genre" class="regular">Genres</a></li>
+        </ul>
+      </div>
+
+      <div class="flex vertical-center gap">
+        <button class="search-button" id="search-button">
+          <img src="./assets/search.svg" alt="" />
+        </button>
+        <input type="text" placeholder="Search" class="search text-center" />
+        <button class="profile-button" id="profile-button">
+          <img src="./assets/person.png" alt="profile" />
+        </button>
+      </div>
+    </nav>
+    <div class="movie-section">
+      <div class="movie-info">
+        <h1>
+          Title <span class="rating">4.0<span class="star">★</span></span>
+          <span class="bookmark">🔖</span>
+        </h1>
+        <p class="description">
+          Movie Description: This will be a description on the movie that will
+          have a video playing behind
+        </p>
+
+        <div class="genres">
+          <span class="genre">Genre</span>
+          <span class="genre">Genre</span>
+          <span class="genre">Genre</span>
+        </div>
+
+        <p><strong>Cast:</strong> Name1, Name2, Name3</p>
+        <p><strong>Duration:</strong> 2h30</p>
+      </div>
+
+      <div class="ratings-section">
+        <h2>Last ratings</h2>
+        <div class="last-rating">
+          <p>
+            Username Rating
+            <span class="user-rating">3.5<span class="star">★</span></span>
+          </p>
+          <p>
+            Username Rating
+            <span class="user-rating">4.5<span class="star">★</span></span>
+          </p>
+          <p>
+            Username Rating
+            <span class="user-rating">1.5<span class="star">★</span></span>
+          </p>
+        </div>
+
+        <h3>Rate the movie</h3>
+        <div class="rate-movie">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

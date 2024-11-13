@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer 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`, // Replace with your actual API key
+            Authorization: `Bearer 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`,
           },
         }
       );
@@ -114,12 +114,16 @@ document.addEventListener("DOMContentLoaded", () => {
       movieCard.className = "movie-card flex column end";
       movieCard.id = movie.title;
       movieCard.style.background = `linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)), url(${movie.poster})`;
+      movieCard.setAttribute("movie-id", movie.id);
       movieCard.innerHTML = `
         <div class="movie-info">
           <h3 class="regular text-white">${movie.title}</h3>
           <p class="extralight text-white">${movie.genre}</p>
         </div>`;
-
+      movieCard.addEventListener("click", () => {
+        localStorage.setItem("movie-id", movie.movie_id);
+        window.location.href = "movie.html";
+      });
       all_movies.appendChild(movieCard);
     });
   }

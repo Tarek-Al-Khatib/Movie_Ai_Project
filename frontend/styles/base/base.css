@@ -100,3 +100,56 @@
   font-weight: 700;
   font-style: normal;
 }
+.links ul li a {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+}
+
+.logo {
+  font-size: 32px;
+}
+
+.logo img {
+  width: 50px;
+}
+.gap-links {
+  gap: 80px;
+}
+
+.search {
+  background-color: unset;
+  color: white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(red, green, blue, 44%);
+  font-size: 24px;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.search-button {
+  background-color: unset;
+  border: none;
+  filter: invert(100%) brightness(100%) saturate(100%);
+  cursor: pointer;
+}
+
+.search-button img {
+  width: 40px;
+}
+
+.profile-button img {
+  width: 70px;
+  border-radius: 100px;
+}
+
+.profile-button {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+}
