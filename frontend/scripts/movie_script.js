@@ -45,12 +45,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       );
       console.log(response.data.choices[0].message.content);
-      recommended = JSON.parse(
-        response.data.choices[0].message.content
-          .match(/\[.*\]/s)[0]
-          .replace(/'/g, '"')
+      recommended = eval(
+        response.data.choices[0].message.content.match(/\[.*\]/s)[0]
       );
       console.log(recommended);
+
+      if (recommended.length != movies.length) {
+        const moviesRecommended = movies.filter((movie) =>
+          recommended.includes(movie.title)
+        );
+
+        updatePage(moviesRecommended, "recommendations");
+      }
       return response.data.choices[0].message.content;
     } catch (error) {
       console.error("Failed to call assistant:", error);
@@ -68,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             movies.map((movie) => movie.title)
           )}`,
         });
+        updatePage(movies, "all-movies-content");
         callAssistant();
       })
       .catch((error) => {
@@ -75,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  function updatePage(movies) {
-    const all_movies = document.getElementById("all-movies-content");
+  function updatePage(movies, section) {
+    const all_movies = document.getElementById(section);
     movies.forEach((movie) => {
       const movieCard = document.createElement("div");
       movieCard.className = "movie-card flex column end";
