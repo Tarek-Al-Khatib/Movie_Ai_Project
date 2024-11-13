@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   let movies;
+  let activities;
+  let recommended;
+  let userId = 1;
   const messages = [
     {
       role: "system",
-      content: `recommemd to the user based on his activity a list of new movies that he doesnt know yet that you select from the movies list i provide. return a list of movies written in javascript`,
+      content: `recommemd to the user based on his activity a list of new movies that he doesnt know yet that you select from the movies list i provide. return a list of recommended movies in form of array`,
     },
   ];
 
-  let activities;
-
-  let userId = 1;
   axios
     .get(
       `http://localhost:8080/movie-ai/backend/apis/get_activities_by_user.php`,
@@ -45,6 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       );
       console.log(response.data.choices[0].message.content);
+      recommended = JSON.parse(
+        response.data.choices[0].message.content
+          .match(/\[.*\]/s)[0]
+          .replace(/'/g, '"')
+      );
+      console.log(recommended);
       return response.data.choices[0].message.content;
     } catch (error) {
       console.error("Failed to call assistant:", error);
@@ -56,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => {
         movies = response.data;
         console.log(movies);
-        console.log(movies["title"]);
         messages.push({
           role: "system",
           content: `Movies: ${JSON.stringify(
