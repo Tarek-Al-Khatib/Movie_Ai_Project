@@ -13,7 +13,7 @@ axios
       movieCard.innerHTML = `
         <div class="movie-info">
           <h3 class="regular text-white">${movie.title}</h3>
-          <p class="regular text-white">${movie.genre}</p>
+          <p class="extralight text-white">${movie.genre}</p>
         </div>`;
 
       all_movies.appendChild(movieCard);
