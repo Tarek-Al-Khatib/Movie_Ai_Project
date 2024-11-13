@@ -256,3 +256,8 @@
 .social p {
   margin-bottom: 5px;
 }
+
+.trending-shows,
+.releases {
+  display: none;
+}

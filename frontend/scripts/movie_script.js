@@ -10,6 +10,27 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
+  function displayRandomMovie() {
+    const randomMovie = movies[Math.floor(Math.random() * movies.length)];
+    const header_movie = document.getElementById("header-movie");
+    header_movie.style.background = `linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)), url(${randomMovie.poster})`;
+    header_movie.style.backgroundPosition = "top";
+    document.getElementById("movie-title").textContent = randomMovie.title;
+    document.getElementById("movie-description").textContent =
+      randomMovie.description;
+  }
+
+  function displayRandomRecommendedMovie(recommended) {
+    const randomMovie =
+      recommended[Math.floor(Math.random() * recommended.length)];
+    const header_movie = document.getElementById("header-movie");
+    header_movie.style.background = `linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)), url(${randomMovie.poster})`;
+    header_movie.style.backgroundPosition = "top";
+    document.getElementById("movie-title").textContent = randomMovie.title;
+    document.getElementById("movie-description").textContent =
+      randomMovie.description;
+  }
+
   axios
     .get(
       `http://localhost:8080/movie-ai/backend/apis/get_activities_by_user.php`,
@@ -75,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
           )}`,
         });
         updatePage(movies, "all-movies-content");
+        displayRandomMovie();
         callAssistant();
       })
       .catch((error) => {
