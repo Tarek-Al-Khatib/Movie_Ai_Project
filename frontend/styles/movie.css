@@ -5,10 +5,10 @@ body {
 .movie-section {
   display: flex;
   padding: 20px;
-  border-radius: 8px;
   background-color: #8b0000;
+  box-shadow: inset 0px 0px 100px 50px rgba(1, 1, 1, 0.4);
   color: white;
-  max-width: 900px;
+  height: 600px;
   width: 100%;
   justify-content: space-between;
 }
@@ -18,7 +18,7 @@ body {
 }
 
 .movie-info h1 {
-  font-size: 24px;
+  font-size: 64px;
   margin-bottom: 10px;
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 .description {
-  font-size: 14px;
+  font-size: 24px;
   margin: 10px 0;
 }
 
