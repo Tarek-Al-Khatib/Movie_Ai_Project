@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const messages = [
     {
       role: "system",
-      content: `I will be giving you a list of movies, and i want you to return a list of objects containing the movies recommended based on the activity of the user. Activities: ${activities}, and movies: ${movies}`,
+      content: `recommemd to the user based on his activity a list of new movies that he doesnt know yet that you select from the movies list i provide. return a list of movies written in javascript`,
     },
   ];
 
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         role: "system",
         content: `Activities: ${JSON.stringify(activities)}`,
       });
+      getMovies();
     })
     .catch((error) =>
       console.error("Error fetching activities by user ID:", error)
@@ -43,36 +44,46 @@ document.addEventListener("DOMContentLoaded", () => {
           },
         }
       );
-      messages.push({
-        role: "assistant",
-        content: response.data.choices[0].message.content,
-      });
+      console.log(response.data.choices[0].message.content);
       return response.data.choices[0].message.content;
     } catch (error) {
       console.error("Failed to call assistant:", error);
     }
   }
-  axios
-    .get("http://localhost:8080/movie-ai/backend/apis/get_all_movies.php")
-    .then((response) => {
-      movies = response.data;
-      console.log(movies);
-      const all_movies = document.getElementById("all-movies-content");
-      movies.forEach((movie) => {
-        const movieCard = document.createElement("div");
-        movieCard.className = "movie-card flex column end";
-        movieCard.id = movie.title;
-        movieCard.style.background = `linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)), url(${movie.poster})`;
-        movieCard.innerHTML = `
-          <div class="movie-info">
-            <h3 class="regular text-white">${movie.title}</h3>
-            <p class="extralight text-white">${movie.genre}</p>
-          </div>`;
-
-        all_movies.appendChild(movieCard);
+  async function getMovies() {
+    axios
+      .get("http://localhost:8080/movie-ai/backend/apis/get_all_movies.php")
+      .then((response) => {
+        movies = response.data;
+        console.log(movies);
+        console.log(movies["title"]);
+        messages.push({
+          role: "system",
+          content: `Movies: ${JSON.stringify(
+            movies.map((movie) => movie.title)
+          )}`,
+        });
+        callAssistant();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
-    })
-    .catch((error) => {
-      console.error("Error:", error);
+  }
+
+  function updatePage(movies) {
+    const all_movies = document.getElementById("all-movies-content");
+    movies.forEach((movie) => {
+      const movieCard = document.createElement("div");
+      movieCard.className = "movie-card flex column end";
+      movieCard.id = movie.title;
+      movieCard.style.background = `linear-gradient(rgba(1, 1, 1, 0.01) 30%, rgba(1, 1, 1, 1)), url(${movie.poster})`;
+      movieCard.innerHTML = `
+        <div class="movie-info">
+          <h3 class="regular text-white">${movie.title}</h3>
+          <p class="extralight text-white">${movie.genre}</p>
+        </div>`;
+
+      all_movies.appendChild(movieCard);
     });
+  }
 });
