@@ -6,7 +6,6 @@ header("Access-Control-Allow-Headers: *");
 $user_id = $_GET['user_id'] ?? null;
 
 if ($user_id) {
-    // Updated query to join activities with movies
     $query = $connection->prepare("
         SELECT activities.*, movies.title AS movie_title 
         FROM activities

@@ -1,7 +1,8 @@
+const time = Date.now();
+
 document.addEventListener("DOMContentLoaded", async () => {
   const movieId = localStorage.getItem("movie-id");
-  const time = Date.now();
-  let differenceTime;
+
   if (!movieId) {
     console.error("No movie ID found in localStorage");
     return;
@@ -76,4 +77,47 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Error fetching movie data:", error);
   }
+});
+
+window.addEventListener("beforeunload", () => {
+  let differenceTime = Date.now() - time;
+
+  async function addOrUpdateActivity(
+    user_id,
+    movie_id,
+    activity_time = 1,
+    nbOfClicks = 1
+  ) {
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/movie-ai/backend/apis/add_activity.php",
+        {
+          user_id: user_id,
+          movie_id: movie_id,
+          activity_time: activity_time,
+          nbOfClicks: nbOfClicks,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.data.status === "success") {
+        console.log(response.data.message);
+      } else {
+        console.error("Error:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Failed to add or update activity:", error);
+    }
+  }
+
+  addOrUpdateActivity(
+    Number(localStorage.getItem("userid")),
+    Number(localStorage.getItem("movie-id")),
+    differenceTime,
+    1
+  );
 });
