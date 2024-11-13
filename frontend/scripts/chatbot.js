@@ -1,11 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
   const messages = [
     {
-      role: "user",
+      role: "system",
       content:
-        "you are here just to answer stuff about movies and to give recommendations based on the data of the user don't answer anything else than movies introduce yourself please(MovieMap Bot Assistant)",
+        "you are here just to answer stuff about movies and to give recommendations based on the data of the user don't answer anything else than movies introduce yourself please(MovieMap Bot Assistant), also remember that i sent the activities of the user based on several movies, so you can know what he likes and what he doesnt. so when he asks you for recommendation, u check the activities array and check the movies",
     },
   ];
+
+  let activities;
+
+  let userId = 1;
+  axios
+    .get(
+      `http://localhost:8080/movie-ai/backend/apis/get_activities_by_user.php`,
+      {
+        params: { user_id: userId },
+      }
+    )
+    .then((response) => {
+      activities = response.data;
+      messages.push({
+        role: "system",
+        content: `Activities: ${JSON.stringify(activities)}`,
+      });
+    })
+    .catch((error) =>
+      console.error("Error fetching activities by user ID:", error)
+    );
+
   const send = document.getElementById("send-button");
 
   send.addEventListener("click", async () => {
@@ -21,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await axios.post(
         "https://api.openai.com/v1/chat/completions",
         {
-          model: "gpt-4o",
+          model: "gpt-4",
           messages: messages,
         },
         {
@@ -47,21 +69,22 @@ document.addEventListener("DOMContentLoaded", () => {
     chatMessages.innerHTML = "";
 
     messages.forEach((message) => {
-      const messageElement = document.createElement("div");
-      messageElement.classList.add(
-        "message",
-        message.role == "assistant" ? "bot" : "user"
-      );
+      if (message.role != "system") {
+        const messageElement = document.createElement("div");
+        messageElement.classList.add(
+          "message",
+          message.role == "assistant" ? "bot" : "user"
+        );
 
-      const messageContent = document.createElement("div");
-      messageContent.classList.add("message-content");
-      messageContent.textContent = message.content;
+        const messageContent = document.createElement("div");
+        messageContent.classList.add("message-content");
+        messageContent.textContent = message.content;
 
-      messageElement.appendChild(messageContent);
-      chatMessages.appendChild(messageElement);
+        messageElement.appendChild(messageContent);
+        chatMessages.appendChild(messageElement);
+      }
     });
 
-    // Scroll to the bottom to show the latest message
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 });
