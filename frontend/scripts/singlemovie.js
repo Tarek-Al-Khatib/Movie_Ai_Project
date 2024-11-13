@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             `http://localhost:8080/movie-ai/backend/apis/rateMovie.php`,
             {
               movie_id: movieId,
-              user_id: 1,
+              user_id: Number(localStorage.getItem("userid")),
               rating: userRating,
             }
           );

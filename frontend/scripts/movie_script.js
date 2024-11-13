@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let movies;
   let activities;
   let recommended;
-  let userId = 1;
+  let userId = Number(localStorage.getItem("userid"));
   const messages = [
     {
       role: "system",

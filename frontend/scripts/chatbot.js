@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let activities;
 
-  let userId = 1;
+  let userId = Number(localStorage.getItem("userid"));
   axios
     .get(
       `http://localhost:8080/movie-ai/backend/apis/get_activities_by_user.php`,
