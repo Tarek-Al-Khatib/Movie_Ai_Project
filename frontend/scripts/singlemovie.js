@@ -18,9 +18,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
     const ratingsData = ratingsResponse.data;
 
+    const averageRatingResponse = await axios.get(
+      `http://localhost:8080/movie-ai/backend/apis/getAverageRating.php?movie_id=${movieId}`
+    );
+    const averageRatingData = averageRatingResponse.data;
+    console.log(averageRatingData);
     document.querySelector(
       "h1"
-    ).innerHTML = `${movieData.title} <span class="rating">${movieData.rating}<span class="star">★</span></span> <span class="bookmark">🔖</span>`;
+    ).innerHTML = `${movieData.title} <span class="rating">${averageRatingData.average_rating}<span class="star">★</span></span> <span class="bookmark">🔖</span>`;
     document.querySelector(".description").textContent = movieData.description;
     document.querySelector(
       ".movie-info .genres"
