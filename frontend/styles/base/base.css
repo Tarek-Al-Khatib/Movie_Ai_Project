@@ -155,30 +155,20 @@
 }
 
 .footer {
-  background-color: #1b1b1b;
+  background-color: #000000;
   padding: 20px;
   padding-top: 30px;
   gap: 100px;
 }
 
-.footer-logo {
-  max-width: 200px;
-}
-
 .footer-logo h2 {
-  font-size: 1.8rem;
-  color: #ff5a5f;
+  font-size: 32px;
+  color: #800000;
 }
 
 .footer-logo span {
   color: #fff;
 }
-
-.footer-logo p {
-  font-size: 1rem;
-  color: #ff5a5f;
-}
-
 .footer-links {
   display: flex;
   flex-direction: column;
@@ -188,6 +178,7 @@
   color: #fff;
   text-decoration: none;
   margin-bottom: 8px;
+  font-size: 24px;
 }
 
 .footer-image img {
@@ -206,15 +197,17 @@
   color: #fff;
   text-decoration: none;
   margin-bottom: 8px;
+  font-size: 24px;
 }
 
 .contact,
 .social {
   margin-top: 10px;
+  font-size: 24px;
 }
 
 .social a {
-  font-size: 1.2rem;
+  font-size: 24px;
   color: #fff;
   text-decoration: none;
   margin-right: 10px;
@@ -222,4 +215,22 @@
 
 .social p {
   margin-bottom: 5px;
+}
+
+.footer-first {
+  width: 50%;
+}
+
+.slogan {
+  width: 100%;
+  font-size: 32px;
+}
+
+.footer-first .image {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://pyxis.nymag.com/v1/imgs/004/bdf/e2d1977057829602c280b9ac74b3602260-smile2.rhorizontal.w610.jpg");
 }
